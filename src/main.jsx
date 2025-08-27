@@ -1,10 +1,23 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+
+const namelist = ['Luiz', 'Saulo', 'John'];
+
+function MyElement() {
+  return (
+    <table>
+      <tr>
+        <th>Name</th>
+      </tr>
+      {namelist.map(name => 
+        <tr>
+          <td>{name}</td>
+        </tr>
+      )}
+    </table>
+    
+  );
+}
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  <MyElement />
 )
