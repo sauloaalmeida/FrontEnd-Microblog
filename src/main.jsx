@@ -1,11 +1,11 @@
 import { createRoot } from 'react-dom/client'
 import Botao from './Botao';
 
-let item1 = {id: 1, name: "Banana", price: 30.46};
-let item2 = {id: 2, name: "Maça", price: 20.54};
-let item3 = {id: 3, name: "Uva", price: 10.5};
-
-const itemsList = [item1, item2, item3];
+const itemsList = [
+  {id: 1, name: "Banana", price: 30.46},
+  {id: 2, name: "Maça", price: 20.54}, 
+  {id: 3, name: "Uva", price: 10.5}
+];
 
 
 
