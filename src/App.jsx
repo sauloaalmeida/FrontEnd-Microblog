@@ -1,8 +1,22 @@
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import ListaItems from './ListaItens';
+import NovoItem from './NovoItem';
+
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World!</h1>
-    </div>
+    <BrowserRouter>
+      {/* Navigation */}
+      <nav>
+        <Link to="/">Lista Item</Link> |{" "}
+        <Link to="/novoItem">Novo Item</Link>
+      </nav>
+
+      {/* Routes */}
+      <Routes>
+        <Route path="/" element={<ListaItems/>} />
+        <Route path="/novoItem" element={<NovoItem/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
