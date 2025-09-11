@@ -15,7 +15,7 @@ function ListaItems() {
         <th>Ações</th>
       </tr>
       {itemsList.map(item => 
-        <tr>
+        <tr key={item.id}>
           <td>{item.name}</td>
           <td>{item.price}</td>
           <td><Botao nome="Detalhe"/></td>
