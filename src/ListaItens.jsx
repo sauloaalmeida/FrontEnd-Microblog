@@ -14,15 +14,15 @@ function ListaItems() {
           <th>Nome</th>
           <th>Preco</th>
           <th>Ações</th>
-        </tr>
+      </tr>
       </thead>
       <tbody>
-        {itemsList.map(item => 
-          <tr>
-            <td>{item.name}</td>
-            <td>{item.price}</td>
-            <td><Botao nome="Detalhe"/></td>
-          </tr>
+      {itemsList.map(item => 
+        <tr key={item.id}>
+          <td>{item.name}</td>
+          <td>{item.price}</td>
+          <td><Botao nome="Detalhe"/></td>
+        </tr>
         )}
       </tbody>
     </table>
