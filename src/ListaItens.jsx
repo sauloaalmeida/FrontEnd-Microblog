@@ -9,18 +9,22 @@ const itemsList = [
 function ListaItems() {
   return(
     <table>
-      <tr>
-        <th>Nome</th>
-        <th>Preco</th>
-        <th>Ações</th>
-      </tr>
-      {itemsList.map(item => 
+      <thead>
         <tr>
-          <td>{item.name}</td>
-          <td>{item.price}</td>
-          <td><Botao nome="Detalhe"/></td>
+          <th>Nome</th>
+          <th>Preco</th>
+          <th>Ações</th>
         </tr>
-      )}
+      </thead>
+      <tbody>
+        {itemsList.map(item => 
+          <tr>
+            <td>{item.name}</td>
+            <td>{item.price}</td>
+            <td><Botao nome="Detalhe"/></td>
+          </tr>
+        )}
+      </tbody>
     </table>
   );
 }
