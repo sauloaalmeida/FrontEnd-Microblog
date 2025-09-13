@@ -1,4 +1,4 @@
-import Botao from './Botao';
+import Botao from '../components/Botao';
 
 const itemsList = [
   {id: 1, name: "Banana", price: 30.46},
@@ -9,18 +9,22 @@ const itemsList = [
 function ListaItems() {
   return(
     <table>
-      <tr>
-        <th>Nome</th>
-        <th>Preco</th>
-        <th>Ações</th>
-      </tr>
-      {itemsList.map(item => 
+      <thead>
         <tr>
+          <th>Nome</th>
+          <th>Preco</th>
+          <th>Ações</th>
+      </tr>
+      </thead>
+      <tbody>
+      {itemsList.map(item => 
+        <tr key={item.id}>
           <td>{item.name}</td>
           <td>{item.price}</td>
           <td><Botao nome="Detalhe"/></td>
         </tr>
-      )}
+        )}
+      </tbody>
     </table>
   );
 }
