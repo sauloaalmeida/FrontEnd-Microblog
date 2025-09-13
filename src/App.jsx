@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import ListaItems from './ListaItens';
-import NovoItem from './NovoItem';
+import ListaItems from './views/ListaItens';
+import NovoItem from './views/NovoItem';
 
 function App() {
   return (
