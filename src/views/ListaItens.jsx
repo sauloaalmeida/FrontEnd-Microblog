@@ -1,4 +1,4 @@
-import Botao from './Botao';
+import Botao from '../components/Botao';
 
 const itemsList = [
   {id: 1, name: "Banana", price: 30.46},
