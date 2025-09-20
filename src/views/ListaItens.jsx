@@ -1,12 +1,16 @@
 import Botao from '../components/Botao';
-
-const itemsList = [
-  {id: 1, name: "Banana", price: 30.46},
-  {id: 2, name: "Maça", price: 20.54}, 
-  {id: 3, name: "Uva", price: 10.5}
-];
+import { useState, useEffect } from 'react';
 
 function ListaItems() {
+
+  const [itemsList, setItemsList] = useState([]);
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:5000/api/items")
+      .then((res) => res.json())
+      .then((itemsList) => setItemsList(itemsList));
+ }, []);
+
   return(
     <table>
       <thead>
