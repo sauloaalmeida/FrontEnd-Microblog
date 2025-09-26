@@ -1,26 +1,23 @@
-import Botao from '../components/Botao';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-function ListaItems() {
+
+function DetalhaItem() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [itemsList, setItemsList] = useState([]);
-  const navigate = useNavigate()
+  const [item, setItem] = useState({});
 
-const handleClick = (idItem) => {
-  navigate(`/detalhaItem/${idItem}`);
-};
+  const {idItem} = useParams();
 
- useEffect(() => {
+  useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await fetch('http://127.0.0.1:5000/api/items');
+            const response = await fetch(`http://127.0.0.1:5000/api/items/${idItem}`);
             if (!response.ok) {
               throw new Error(`HTTP error! status: ${response.status}`);
             }
             const result = await response.json();
-            setItemsList(result);
+            setItem(result);
           } catch (error) {
             setError(error);
           } finally {
@@ -33,27 +30,34 @@ const handleClick = (idItem) => {
 
       if (loading) return <div>Loading...</div>;
       if (error) return <div>Error: {error.message}</div>;
-
-
-  return(
+  
+  return (
     <table>
       <thead>
         <tr>
-          <th>Nome</th>
-          <th>Preco</th>
-          <th>Ações</th>
+          <th colSpan={2}>Item</th>
       </tr>
       </thead>
       <tbody>
-      {itemsList.map(item => 
-        <tr key={item.id}>
-          <td>{item.name}</td>
-          <td>{item.price}</td>
-          <td><button id={item.id} onClick={()=>handleClick(item.id)}>Detalhe</button></td>
+       
+        <tr key="id">
+          <td>id:</td>
+          <td>{item.id}</td>
         </tr>
-        )}
+
+        <tr key="name">
+          <td>Nome:</td>
+          <td>{item.name}</td>
+        </tr>
+
+        <tr key="price">
+          <td>Preço:</td>
+          <td>{item.price}</td>
+        </tr>
+    
       </tbody>
     </table>
-  );
+  )
 }
-export default ListaItems;
+
+export default DetalhaItem;
