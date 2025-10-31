@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import ListaItems from './views/ListaItens';
 import NovoItem from './views/NovoItem';
+import DetalhaItem from './views/DetalhaItem';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ListaItems/>} />
         <Route path="/novoItem" element={<NovoItem/>} />
+        <Route path="/detalhaItem/:idItem" element={<DetalhaItem/>} />
       </Routes>
     </BrowserRouter>
   );
